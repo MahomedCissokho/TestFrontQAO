@@ -1,9 +1,8 @@
 
 
-
 <template>
         <div>
-            This is About View
+            Not Found !!!
         </div>
-    
+   
 </template>
