@@ -5,8 +5,18 @@
 
 </script>
 
-<template>
-  <Header/>
-  <RouterView/>
-  <Footer/>
+<template >
+  <div class="example">
+    <Header/>
+    <RouterView/>
+    <Footer/>
+  </div>
+
 </template>
+
+
+<style scoped>
+.example {
+  background-color: #FFDAE4;
+}
+</style>
