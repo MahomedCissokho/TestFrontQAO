@@ -4,13 +4,10 @@ body{
     font-family:'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-*{
-    background-color: '#FFDAE4';
     box-sizing: border-box;
-
 }
+
+
 
 @tailwind base;
 @tailwind components;

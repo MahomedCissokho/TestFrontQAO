@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <header class="p-4 rounded-b-2xl  bg-[#1A0007] ">
+    <header class="p-4 rounded-b-3xl  bg-[#1A0007] ">
       <div class="flex flex-col items-center justify-between max-w-6xl mx-auto text-white sm:flex-row">
         <img :src=logo alt="Art Institute Chicago" class="w-16 h-16">
         <nav class="flex items-center justify-center w-full gap-40 sm:w-auto">
