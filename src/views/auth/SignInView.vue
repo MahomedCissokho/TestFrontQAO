@@ -13,13 +13,13 @@ const rememberMe = ref(false)
 const router = useRouter()
 const auth = getAuth()
 
-const signIn = () => {
+const signIn = async() => {
   if (mail.value === "" || passWord.value === "") {
     alert("Please fill all the fields")
     return
   }
 
-  signInWithEmailAndPassword(auth, mail.value, passWord.value)
+  await signInWithEmailAndPassword(auth, mail.value, passWord.value)
     .then((userCredential) => {
       const user = userCredential.user
       console.log("User signed in successfully:", user)
