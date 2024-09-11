@@ -1,9 +1,8 @@
 
 
-
 <template>
         <div>
-            This is About View
+            This is Galery View
         </div>
     
 </template>
