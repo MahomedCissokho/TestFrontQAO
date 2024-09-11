@@ -41,13 +41,13 @@ import user from '../assets/username.png'
             <div class="relative">
               <label class="block mb-1 font-semibold" for="password">Password</label>
               <input id="password" type="password" placeholder="Enter your password" class="placeholder:pl-5 placeholder-[#1A0007]/70 placeholder:font-medium w-full p-2 pl-10 border border-[#F1B5C5] rounded-md focus:outline-none">
-                <img class="absolute w-4 h-5 text-gray-400 transform left-3 top-1/2 " :src=password alt="Password Icon"/>
+                <img class="absolute w-4 h-5 text-gray-400 transform left-3 top-1/2 translate-y-[.1rem]" :src=password alt="Password Icon"/>
             </div>
             <!-- Confirm Password Input -->
             <div class="relative">
               <label class="block mb-1 font-semibold" for="confirm-password">Confirm Password</label>
               <input id="confirm-password" type="password" placeholder="Confirm your password" class="placeholder-[#1A0007]/70 placeholder:font-medium w-full p-2 pl-10 border border-[#F1B5C5] rounded-md focus:outline-none placeholder:pl-5">
-                <img class="absolute w-4 h-5 text-gray-400 transform left-3 top-1/2" :src=password alt="Password Icon"/>
+                <img class="absolute w-4 h-5 text-gray-400 transform translate-y-[.1rem] left-3 top-1/2" :src=password alt="Password Icon"/>
             </div>
             <!-- or section with borders -->
             <div class="flex items-center justify-between my-4">

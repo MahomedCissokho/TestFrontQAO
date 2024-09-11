@@ -14,10 +14,10 @@
           <span class=" font-light text-[#FFF2F5]">ART INSTITUTE CHICAGO</span>
         </div>
         <div class="flex items-center justify-center space-x-4 ">
-           <span class="p-1 border border-white rounded-lg"><img :src=facebook alt="facebook" class="w-4 h-4"></span>
-           <span class="p-1 border border-white rounded-lg" ><img :src=twitter alt="twitter" class="w-4 h-4"></span>
-           <span class="p-1 border border-white rounded-lg"><img :src=youtube alt="youtube" class="w-4 h-4"></span>
-           <span class="p-1 border border-white rounded-lg"> <img :src=instagram alt="instagram" class="w-4 h-4"></span>
+           <span class="p-1 border border-white rounded-lg"><img :src=facebook alt="facebook" class="w-7 h-7"></span>
+           <span class="p-1 border border-white rounded-lg" ><img :src=twitter alt="twitter" class="w-7 h-7"></span>
+           <span class="p-1 border border-white rounded-lg"><img :src=youtube alt="youtube" class="w-7 h-7"></span>
+           <span class="p-1 border border-white rounded-lg"> <img :src=instagram alt="instagram" class="w-7 h-7"></span>
          
         </div>
       </div>
