@@ -49,6 +49,11 @@ const rememberMe = ref(false)
             <!-- Login Button -->
             <button type="submit" class="w-full p-2 text-white transition duration-300 rounded-md bg-[#B20937] hover:bg-red-700">Login</button>
           </form>
+          <div class="flex items-center justify-between w-full my-5 ">
+            <div class="w-2/5 border-t border-[#F1B5C5]"></div>
+            <span class="mx-2 text-[#F1B5C5]">or</span>
+            <div class="w-2/5 border-t border-[#F1B5C5]"></div>
+          </div>
           <!-- Create Account Link -->
           <p class="flex items-center justify-center mt-4 text-sm gap-7">
             <span>Don't Have an account?</span>
