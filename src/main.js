@@ -5,6 +5,7 @@ import './style.css'
 import router from './router'
 import { initializeApp } from "firebase/app";
 
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -21,5 +22,6 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+
 
 app.mount('#app')

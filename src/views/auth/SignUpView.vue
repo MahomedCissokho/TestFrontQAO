@@ -1,39 +1,44 @@
 <script setup>
-import logo from '../../assets/logo.png'
-import SignUp from '../../assets/signup.png'
-import email from '../../assets/email.png'
-import password from '../../assets/password.png'
-import user from '../../assets/username.png'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import logo from '../../assets/logo.png';
+import SignUp from '../../assets/signup.png';
+import email from '../../assets/email.png';
+import password from '../../assets/password.png';
+import user from '../../assets/username.png';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const name = ref("")
-const mail = ref("")
-const passWord = ref("")
-const confirmPassword = ref("")
-const router = useRouter()
-const auth = getAuth()
+const name = ref("");
+const mail = ref("");
+const passWord = ref("");
+const confirmPassword = ref("");
+const router = useRouter();
+const auth = getAuth();
 
 const register = async () => {
   if (mail.value === "" || confirmPassword.value === "" || name.value === "") {
-    alert("Please fill all the fields")
+    alert("Please fill all the fields");
+  } else if (passWord.value !== confirmPassword.value) {
+    alert("Passwords do not match");
   } else {
-    await createUserWithEmailAndPassword(auth, mail.value, passWord.value)
-      .then((userCredential) => {
-        const user = userCredential.user
-        localStorage.setItem(mail.value, JSON.stringify({ name: name.value, email: mail.value, password: passWord.value }))
-        console.log("User created successfully", user)
-        router.push("/signin")
-      })
-      .catch((error) => {
-        console.error("Error creating user:", error.message)
-        alert("Failed to create account: " + error.message)
-      })
-  }
-}
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, mail.value, passWord.value);
+      const user = userCredential.user;
+      
+      // Update the user profile with displayName
+      await updateProfile(user, {
+        displayName: name.value,
+      });
 
+      console.log("User created successfully", user);
+      router.push("/signin");
+    } catch (error) {
+      console.error("Error creating user:", error.message);
+      alert("Failed to create account: " + error.message);
+    }
+  }
+};
 </script>
 
 <template>
@@ -47,7 +52,7 @@ const register = async () => {
         </div>
       </div>
       <div class="w-full p-6 ml-40 lg:w-1/2 sm:p-8">
-        <div class="flex flex-col items-center justify-center max-w-md mx-auto ">
+        <div class="flex flex-col items-center justify-center max-w-md mx-auto">
           <img :src="logo" alt="Art Institute Chicago" class="w-auto h-16 mb-8">
           <h2 class="mb-4 text-2xl font-bold">Create an account</h2>
           <form class="w-full space-y-4">
@@ -85,9 +90,10 @@ const register = async () => {
               <div class="w-2/5 border-t border-[#F1B5C5]"></div>
             </div>
             <button @click.prevent="register"
-              class="w-full p-2 text-white transition duration-300 rounded-md bg-[#B20937] hover:bg-red-700">Register</button>
+              class="w-full p-2 text-white rounded-md bg-[#B20937] hover:bg-[#9d0831] transition-all duration-300 ease-in-out">Register</button>
           </form>
-          <p class="flex items-center justify-center mt-4 text-sm gap-7"><span class="">You Have an account ? </span><a
+          
+          <p class="flex items-center justify-center mt-4 text-sm gap-7"><span class="">Already have an account?</span><a
               href="/login" class="text-[#B20937] font-semibold">Sign in</a></p>
         </div>
       </div>

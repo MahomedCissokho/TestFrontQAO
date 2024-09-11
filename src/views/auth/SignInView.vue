@@ -23,7 +23,7 @@ const signIn = async() => {
     .then((userCredential) => {
       const user = userCredential.user
       console.log("User signed in successfully:", user)
-      router.push("/search")
+      router.push("/")
     })
     .catch((error) => {
       console.error("Error signing in:", error.message)
@@ -68,7 +68,7 @@ const signIn = async() => {
               <a href="#" class="text-[#B20937] hover:underline">Reset Password</a>
             </div>
             <button
-              class="w-full p-2 text-white transition duration-300 rounded-md bg-[#B20937] hover:bg-red-700">Login</button>
+              class="w-full p-2 text-white transition duration-300 rounded-md bg-[#B20937] hover:bg-[#9d0831] ease-in-out">Login</button>
           </form>
           <div class="flex items-center justify-between w-full my-5 ">
             <div class="w-2/5 border-t border-[#F1B5C5]"></div>
