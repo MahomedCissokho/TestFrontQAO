@@ -44,15 +44,15 @@ cd TestFrontQAO
 ### Configurer Firebase et l'API :
 Créez un fichier `.env` à la racine du projet contenant les informations suivantes :
 ```bash
-VITE_FIREBASE_API_KEY=AIzaSyDtEyhcrjv9OxbMUCpscu2nBDeroZ3IdLk
-VITE_FIREBASE_AUTH_DOMAIN=galery-bea7f.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=galery-bea7f
-VITE_FIREBASE_STORAGE_BUCKET=galery-bea7f.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=650748747345
-VITE_FIREBASE_APP_ID=1:650748747345:web:b0cbf2b286934f62c4a270
-VITE_FIREBASE_MEASUREMENT_ID=G-LPSXBF2XFB
-VITE_API_URL=https://api.artic.edu/api/v1/artworks
-VITE_IMAGE_URL=https://www.artic.edu/iiif/2
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID=
+VITE_API_URL=
+VITE_IMAGE_URL=
 ```
 
 ### Installer les dépendances et lancer l'application :
