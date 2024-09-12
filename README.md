@@ -37,7 +37,7 @@
 
 ### Cloner le projet :
 ```bash
-git clone https://github.com/mahmedcissokho/TestFrontQAO.git
+git clone https://github.com/mahomedcissokho/TestFrontQAO.git
 cd TestFrontQAO
 ```
 
