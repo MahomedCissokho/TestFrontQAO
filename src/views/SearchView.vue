@@ -1,7 +1,7 @@
 <script setup lang="js">
 import { ref, onMounted } from 'vue';
 import { getAllData } from '@/api/api.js'; 
-import SearchBarComponent from '@/components/SearchBarComponent.vue';
+import SearchBarComponent from '@/components/SearchBarComponent.vue'; 
 
 const artworks = ref([]);
 const loading = ref(true);
@@ -21,10 +21,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="h-screen max-w-6xl px-5 pb-4 mx-auto">
+  <div class="max-w-6xl px-5 pb-4 mx-auto mb-10 ">
     <div class="flex items-center justify-between mb-16">
       <div class="w-4/12">
-        <SearchBarComponent />
+        <SearchBarComponent @search="handleSearch"/>
       </div>
       <div>
         <!-- Pagination buttons can go here -->
@@ -42,7 +42,7 @@ onMounted(async () => {
       <div 
         v-for="art in artworks" 
         :key="art.id" 
-        class="relative overflow-hidden bg-[#F1B5C5] rounded-lg shadow-xl "
+        class="relative overflow-hidden bg-[#F1B5C5] rounded-lg shadow-xl"
       >
         <!-- Image that covers the whole card -->
         <img 
@@ -62,7 +62,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-/* Optional styles for truncation handling */
 .grid > div {
   min-height: 200px; /* Ensures consistent height for cards */
 }
