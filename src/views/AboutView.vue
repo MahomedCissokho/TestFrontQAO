@@ -14,7 +14,7 @@
           </li>
           <li>
             <span class="font-semibold">Technologies utilisées :</span> 
-            Ce projet est construit avec <span class="text-[#B20937]">Vue.js 3</span>, <span class="text-[#B20937]">Axios</span>, <span class="text-[#B20937]">Firebase</span> pour l'authentification, et <span class="text-[#B20937]">Vue Router</span> pour la navigation. L'interface utilise <span class="text-[#B20937]">Tailwind CSS</span> pour un design réactif et moderne.
+            Ce projet est construit avec <span class="text-[#B20937]">Vue.js 3</span>, <span class="text-[#B20937]">Axios</span>, <span class="text-[#B20937]">Firebase</span> pour l'authentification, <span class="text-[#B20937]">Pinia</span> pour le State Management, et <span class="text-[#B20937]">Vue Router</span> pour la navigation. L'interface utilise <span class="text-[#B20937]">Tailwind CSS</span> pour un design réactif et moderne.
           </li>
           <li>
             <span class="font-semibold">Authentification :</span> 

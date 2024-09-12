@@ -9,7 +9,7 @@ const fetchImage = (imageId) => {
     : defaultImage;
 };
 
-export const getAllData = async (page = 1, limit = 30) => {
+export const getAllData = async (page = 1, limit = 20) => {
   try {
     const res = await axios.get(`${API_URL}?fields=id,image_id,title,artist_title,theme_titles&page=${page}&limit=${limit}`);
     return {
@@ -20,7 +20,7 @@ export const getAllData = async (page = 1, limit = 30) => {
         artist: art.artist_title || '--',
         themes: art.theme_titles || [],
       })),
-      pagination: res.data.pagination, // Return pagination data
+      pagination: res.data.pagination, 
     };
   } catch (error) {
     console.error('Error fetching data:', error);
