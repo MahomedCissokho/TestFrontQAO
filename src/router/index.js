@@ -24,7 +24,7 @@ const getCurrentUser = () => {
   const auth = getAuth();
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      unsubscribe(); // Detach the listener after getting the user data
+      unsubscribe(); 
       resolve(user);
     }, reject);
   });

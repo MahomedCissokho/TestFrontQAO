@@ -26,7 +26,6 @@ const register = async () => {
       const userCredential = await createUserWithEmailAndPassword(auth, mail.value, passWord.value);
       const user = userCredential.user;
       
-      // Update the user profile with displayName
       await updateProfile(user, {
         displayName: name.value,
       });
