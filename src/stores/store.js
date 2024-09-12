@@ -1,20 +1,28 @@
 import { defineStore } from 'pinia';
-import { getAllData } from '@/api/api.js'; 
+import { getAllData, searchData } from '@/api/api.js';
 
 export const useArtworksStore = defineStore('artworks', {
   state: () => ({
     artworks: [],
+    filteredArtworks: [],
     loading: true,
     error: null,
-    filteredArtworks: []
+    pagination: {
+      currentPage: 1,
+      totalPages: 0,
+      limit: 30,
+    },
   }),
 
   actions: {
-    async fetchArtworks() {
+    async fetchArtworks(page = 1) {
       this.loading = true;
       try {
-        this.artworks = await getAllData();
-        this.filteredArtworks = this.artworks;
+        const { artworks, pagination } = await getAllData(page, this.pagination.limit);
+        this.artworks = artworks;
+        this.filteredArtworks = artworks;
+        this.pagination.currentPage = pagination.current_page;
+        this.pagination.totalPages = pagination.total_pages;
       } catch (err) {
         this.error = 'Échec du chargement des œuvres d\'art. Veuillez réessayer plus tard.';
       } finally {
@@ -22,28 +30,28 @@ export const useArtworksStore = defineStore('artworks', {
       }
     },
 
-    searchArtworks(searchQuery) {
-      if (!searchQuery) {
-        this.filteredArtworks = this.artworks;
-        return;
+    async searchArtworks(searchQuery, page = 1) {
+      this.loading = true;
+      try {
+        const { artworks, pagination } = await searchData(searchQuery, page, this.pagination.limit);
+        this.filteredArtworks = artworks;
+        this.pagination.currentPage = pagination.current_page;
+        this.pagination.totalPages = pagination.total_pages;
+        this.error = artworks.length === 0 ? `Aucune œuvre trouvée pour "${searchQuery}"` : null;
+      } catch (err) {
+        this.error = 'Erreur lors de la recherche. Veuillez réessayer plus tard.';
+      } finally {
+        this.loading = false;
       }
+    },
 
-      const query = searchQuery.toLowerCase();
-
-      this.filteredArtworks = this.artworks.filter(art => {
-        const matchesId = art.id.toString().includes(query);
-        const matchesTitle = art.title.toLowerCase().includes(query);
-        const matchesArtist = art.artist.toLowerCase().includes(query);
-        const matchesThemes = art.themes.some(theme => theme.toLowerCase().includes(query));
-
-        return matchesId || matchesTitle || matchesArtist || matchesThemes;
-      });
-
-      if (this.filteredArtworks.length === 0) {
-        this.error = `Aucune œuvre trouvée pour "${searchQuery}"`;
+    changePage(page) {
+      this.pagination.currentPage = page;
+      if (this.searchQuery) {
+        this.searchArtworks(this.searchQuery, page);
       } else {
-        this.error = null;
+        this.fetchArtworks(page);
       }
-    }
-  }
+    },
+  },
 });
