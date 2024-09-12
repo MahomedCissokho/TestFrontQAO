@@ -1,11 +1,12 @@
 import axios from 'axios';
 import defaultImage from '../assets/default-image.png';
 
-const API_URL = 'https://api.artic.edu/api/v1/artworks';
+const API_URL = import.meta.env.VITE_API_URL;
+const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
 const fetchImage = (imageId) => {
   return imageId
-    ? `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
+    ? `${IMAGE_URL}/${imageId}/full/843,/0/default.jpg`
     : defaultImage;
 };
 
@@ -20,7 +21,7 @@ export const getAllData = async (page = 1, limit = 20) => {
         artist: art.artist_title || '--',
         themes: art.theme_titles || [],
       })),
-      pagination: res.data.pagination, 
+      pagination: res.data.pagination,
     };
   } catch (error) {
     console.error('Error fetching data:', error);

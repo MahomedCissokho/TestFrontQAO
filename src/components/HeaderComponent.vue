@@ -51,7 +51,6 @@ const toggleMenu = () => {
         </button>
       </div>
       
-      <!-- Navigation Links -->
       <nav :class="['flex-col sm:flex-row sm:flex items-center gap-40 sm:w-auto', isMenuOpen ? 'flex' : 'hidden']" class="w-full transition-all duration-300 ease-in-out sm:w-auto">
         <ul class="flex flex-col items-center justify-center gap-5 space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4">
           <li>
